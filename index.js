@@ -1,34 +1,18 @@
 export default {
   async fetch(request) {
-    // --- CONFIGURACIÓN DE SEGURIDAD ---
-    // 1. Cambia esto por el dominio real donde está tu WordPress (sin barra al final)
-    const DOMINIO_PERMITIDO = "https://testapp.byarqin.com"; 
-
-    const origin = request.headers.get("Origin");
-
+    // 1. CORS abierto: Permite conexión desde cualquier dominio
     const corsHeaders = {
-      "Access-Control-Allow-Origin": DOMINIO_PERMITIDO,
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
     };
 
-    // 2. Manejar la verificación del navegador (Preflight - OPTIONS)
+    // 2. Manejar la verificación automática del navegador (Preflight)
     if (request.method === "OPTIONS") {
-      if (origin !== DOMINIO_PERMITIDO) {
-        return new Response(null, { status: 403 });
-      }
       return new Response(null, { headers: corsHeaders });
     }
 
-    // 3. Bloquear intentos de acceso desde otros lugares
-    if (origin !== DOMINIO_PERMITIDO) {
-      return new Response(JSON.stringify({ error: "Acceso denegado" }), {
-        status: 403,
-        headers: { "Content-Type": "application/json" }
-      });
-    }
-
-    // --- MOTOR DE SIMULACIÓN ---
+    // 3. Motor de simulación principal
     if (request.method === "POST") {
       try {
         const presion = 990 + Math.random() * (1030 - 990);
