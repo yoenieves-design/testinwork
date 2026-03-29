@@ -1,7 +1,7 @@
 export default {
   async fetch(request) {
     // 1. Define tu dominio autorizado estrictamente
-    const DOMINIO_PERMITIDO = "https://app.byvoxel.com"; // <-- CAMBIA ESTO
+    const DOMINIO_PERMITIDO = "https://testapp.byarqin.com"; // <-- CAMBIA ESTO
 
     // 2. Leer desde dónde viene la petición
     const origin = request.headers.get("Origin");
