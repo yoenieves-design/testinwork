@@ -2,7 +2,7 @@ export default {
   async fetch(request) {
     // --- CONFIGURACIÓN DE SEGURIDAD ---
     // 1. Define tu dominio autorizado estrictamente (WordPress)
-    const DOMINIO_PERMITIDO = "https://tu-dominio-real.com"; // <-- ¡CAMBIA ESTO!
+    const DOMINIO_PERMITIDO = "https://testapp.byarqin.com/"; // <-- ¡CAMBIA ESTO!
 
     const origin = request.headers.get("Origin");
 
