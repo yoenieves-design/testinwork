@@ -2,7 +2,7 @@ export default {
   async fetch(request) {
     // --- CONFIGURACIÓN DE SEGURIDAD ---
     // 1. Cambia esto por el dominio real donde está tu WordPress (sin barra al final)
-    const DOMINIO_PERMITIDO = "https://testapp.byarqin.com/"; 
+    const DOMINIO_PERMITIDO = "https://testapp.byarqin.com"; 
 
     const origin = request.headers.get("Origin");
 
